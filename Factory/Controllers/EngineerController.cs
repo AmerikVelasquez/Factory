@@ -1,16 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
-using Factory.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
-  public class EngineerController : Controller
+  public class EngineersController : Controller
   {
     private readonly FactoryContext _db;
 
-    public EngineerController(FactoryContext db)
+    public EngineersController(FactoryContext db)
     {
       _db = db;
     }
@@ -26,7 +27,7 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create (Engineer engineer, int MachineId) 
+    public ActionResult Create (Engineer engineer) 
     {
       _db.Engineers.Add(engineer);
       _db.SaveChanges();
