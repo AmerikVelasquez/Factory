@@ -1,0 +1,11 @@
+@model Factory.Models.Engineer
+
+<h2>Add a Engineer</h2>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, 
+  new {@class="text", required = "required"})
+  <input type ="submit" value = "Add Course" />
+}
+<p>@Html.ActionLink("show engineers", "Index")</p>
